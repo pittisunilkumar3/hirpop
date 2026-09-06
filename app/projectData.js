@@ -39,7 +39,7 @@ export const projects = [
     status: "Upcoming · December 2026",
     tagline: "The next chapter is coming.",
     detail: "The fourth edition continues building a platform for the evolving creative economy and the future of cinematic experience.",
-    role: "HRIPOP-led platform development · Experience strategy · Ecosystem curation",
+    role: "End-to-end event strategy and execution, covering celebrity, delegate & guest management, B2B curation, hospitality, production and on-ground operations. Curating high-value industry connections and delivering a seamless experience for partners, speakers, exhibitors and attendees.",
     focus: "Cinema · Film technology · Animation · VFX · Gaming · AI · XR · Creative entrepreneurship",
     image: "/assets/project-cinematica-2026.png",
   },
