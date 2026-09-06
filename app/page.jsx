@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { projects } from "./projectData";
 
 const capabilities = [
   {
@@ -42,33 +43,6 @@ const experienceSteps = [
   ["Create", "We craft every detail with precision and passion.", "gear", "purple"],
   ["Experience", "We deliver moments that move people and create impact.", "people", "cyan"],
   ["Remember", "We build memories that last far beyond the experience.", "star", "gold"],
-];
-
-const projects = [
-  {
-    className: "project-a",
-    title: "Cinematica Expo",
-    tagline: "Where cinema met the future.",
-    detail: "A groundbreaking celebration of cinema and technology that brought visionaries, creators and audiences into the future of storytelling.",
-  },
-  {
-    className: "project-b",
-    title: "CINICATHON",
-    tagline: "Where creativity meets innovation.",
-    detail: "A creative marathon where ideas collide, teams build, and bold concepts turn into unforgettable experiences.",
-  },
-  {
-    className: "project-c",
-    title: "Frames of Founders",
-    tagline: "Where entrepreneurship becomes storytelling.",
-    detail: "An exclusive storytelling platform that brings founders’ journeys, insights and lessons to inspire the next generation of dreamers.",
-  },
-  {
-    className: "project-d",
-    title: "Cinematica Expo 2026",
-    tagline: "The next chapter is coming.",
-    detail: "Bigger. Bolder. Beyond imagination. Get ready for a new era of cinematic experiences that will redefine the future once again.",
-  },
 ];
 
 function Brand() {
@@ -171,9 +145,10 @@ export default function HomePage() {
       <header className="site-header" aria-label="Primary navigation">
         <Brand />
         <nav className="desktop-nav" aria-label="Main menu">
-          <a href="#home">Home</a><a href="#about">About</a><a href="#what-we-do">What we do</a>
-          <a href="#worlds">Our worlds</a><a href="#projects">Projects</a><a href="#insights">Insights</a><a href="#contact">Contact</a>
+          <a href="#home">Home</a><a href="#what-we-do">What we do</a><a href="#experience">Experiences</a>
+          <a href="#projects">Our work</a><a href="#ecosystem">Ecosystem</a><a href="#about">About</a>
         </nav>
+        <a className="header-cta" href="#contact">Imagine with us</a>
         <button
           ref={menuButtonRef}
           className="menu-toggle"
@@ -189,10 +164,10 @@ export default function HomePage() {
         <div className="menu-panel-inner">
           <p>Explore HRIPOP</p>
           <nav aria-label="Expanded menu">
-            <a href="#home" onClick={closeMenu}>Home</a><a href="#about" onClick={closeMenu}>About HRIPOP</a>
-            <a href="#what-we-do" onClick={closeMenu}>What we do</a><a href="#worlds" onClick={closeMenu}>Our five worlds</a>
-            <a href="#projects" onClick={closeMenu}>Signature projects</a><a href="#insights" onClick={closeMenu}>Insights</a>
-            <a href="#contact" onClick={closeMenu}>Start an experience</a>
+            <a href="#home" onClick={closeMenu}>Home</a><a href="#what-we-do" onClick={closeMenu}>What we do</a>
+            <a href="#experience" onClick={closeMenu}>Experiences</a><a href="#projects" onClick={closeMenu}>Our work</a>
+            <a href="#ecosystem" onClick={closeMenu}>Ecosystem</a><a href="#about" onClick={closeMenu}>About HRIPOP</a>
+            <a href="#contact" onClick={closeMenu}>Imagine with us</a>
           </nav>
           <div className="menu-foot">IMAGINE · CURATE · HYBRIDIZE · EXPERIENCE · REMEMBER</div>
         </div>
@@ -203,11 +178,11 @@ export default function HomePage() {
           <div className="hero-backdrop" aria-hidden="true" />
           <div className="hero-content reveal">
             <h1 id="hero-title"><span>What if your</span><strong>imagination</strong><span className="could-line">could become an</span><span className="experience-line">experience?</span></h1>
-            <p className="hero-kicker">We make it real.</p>
-            <p className="hero-copy">HRIPOP Media creates extraordinary experiences across creative industries, entertainment, events, media and image management. From creative-industry summits and concerts to destination weddings, film publicity, business matchmaking, private celebrations and public image management — we bring imagination into the real world.</p>
+            <p className="hero-kicker">You bring the imagination. We build the experience.</p>
+            <p className="hero-copy">HRIPOP is a premium experience partner for brands, corporates, government, founders and the creative industries. We bring together ideas, people, technology and execution to create experiences that live beyond the moment.</p>
             <div className="hero-actions"><a className="button button-primary" href="#contact">Imagine with us <span>⟶</span></a><a className="button button-secondary" href="#experience">Plan an experience</a></div>
           </div>
-          <div className="journey" aria-label="The HRIPOP journey"><span className="journey-a">Imagination</span><b>⟶</b><span className="journey-b">Transformation</span><b>⟶</b><span className="journey-c">Reality</span><b>⟶</b><span>From what you imagine to what you experience</span></div>
+          <div className="journey" aria-label="The HRIPOP journey"><span className="journey-a">Imagination</span><b aria-hidden="true">→</b><span className="journey-b">Transformation</span><b aria-hidden="true">→</b><span className="journey-c">Reality</span><b className="journey-tail" aria-hidden="true">→</b><span>From what you imagine to what you experience</span></div>
         </section>
 
         <section className="story-section section" id="about">
@@ -222,7 +197,7 @@ export default function HomePage() {
               <div className="eyebrow">Built around one belief</div>
               <h2 className="section-title">Imagination should not have to stay <em>imagination.</em></h2>
               <i className="story-rule" aria-hidden="true" />
-              <p>HRIPOP Media exists to bridge the gap between what people imagine and what they experience. From a spark of an idea to a global-scale experience, we design, build and deliver moments that live far beyond the moment.</p>
+              <p>HRIPOP bridges the gap between what people imagine and what they experience. We curate the people, ideas, technology and execution needed to turn a spark into something real.</p>
               <a className="story-button" href="#what-we-do">Discover our story <span>⟶</span></a>
             </div>
           </div>
@@ -238,7 +213,7 @@ export default function HomePage() {
             <div><div className="eyebrow">What we do</div><h2 className="section-title reveal">We build where <em>creativity</em> meets opportunity.</h2></div>
             <p className="section-lead reveal">We bring together ideas, people, technology and strategy to build extraordinary experiences that create impact and open doors.</p>
           </div>
-          <div className="service-grid" id="worlds">
+          <div className="service-grid" id="ecosystem">
             {capabilities.map((item) => <article className={`service-card service-${item.color} reveal`} key={item.title}><ServiceIcon kind={item.kind} /><h3>{item.title}</h3><p>{item.copy}</p></article>)}
           </div>
         </section>
@@ -252,12 +227,12 @@ export default function HomePage() {
 
         <section className="projects section" id="projects">
           <div className="projects-intro">
-            <div className="projects-heading"><div className="eyebrow">The HRIPOP experience</div><h2 className="section-title reveal">We don’t just talk about experience. <em>We build them.</em></h2><a className="projects-button reveal" href="#contact">View all projects <span>⟶</span></a></div>
-            <div className="projects-lead reveal"><p>From concept to execution, from intimate gatherings to global spectacles, we design and deliver experiences that leave a lasting impact.</p><i /></div>
+            <div className="projects-heading"><div className="eyebrow">The HRIPOP experience</div><h2 className="section-title reveal">We don’t just talk about experiences. <em>We build them.</em></h2><a className="projects-button reveal" href="#project-list">View all projects <span>⟶</span></a></div>
+            <div className="projects-lead reveal"><p>Projects are proof. We turn ideas into platforms for connection, opportunity, creativity and community.</p><i /></div>
           </div>
-          <div className="project-list">
+          <div className="project-list" id="project-list">
             {projects.map((project, index) => <article className={`project-strip ${project.className} reveal`} key={project.title}>
-              <div className="project-info"><span className="project-number">{String(index + 1).padStart(2, "0")}</span><h3>{project.title}</h3><p className="project-tagline">{project.tagline}</p><i /><p className="project-detail">{project.detail}</p></div>
+              <div className="project-info"><div className="project-meta"><span className="project-number">{String(index + 1).padStart(2, "0")}</span><span className={`project-status${project.status.startsWith("Upcoming") ? " is-upcoming" : ""}`}>{project.status}</span></div><h3>{project.title}</h3><p className="project-tagline">{project.tagline}</p><i /><p className="project-detail">{project.detail}</p><p className="project-role"><strong>HRIPOP role</strong>{project.role}</p><a className="project-link" href={`/projects/${project.slug}`}>Explore case study <span>→</span></a></div>
               <div className="project-media" role="img" aria-label={`${project.title} project scene`} />
             </article>)}
           </div>
@@ -273,7 +248,7 @@ export default function HomePage() {
         </section>
 
         <section className="contact section" id="contact">
-          <div className="contact-copy reveal"><div className="eyebrow">The HRIPOP Experience Lab</div><h2 className="section-title">Have an idea that doesn’t exist yet?</h2><p>Tell us what you’re imagining. We’ll help you bring it to life.</p><strong>Your imagination. Our ecosystem.<br />One experience.</strong></div>
+          <div className="contact-copy reveal"><div className="eyebrow">You bring the imagination</div><h2 className="section-title">What are you imagining?</h2><p>If it doesn’t fit a standard category—or hasn’t been done before—start there. Tell us what you see in your mind. We’ll build the ecosystem required to make it real.</p><strong>Your imagination. Our ecosystem.<br />One experience.</strong></div>
           <form className="enquiry-form reveal" id="enquiry-form" noValidate onSubmit={handleSubmit} onInput={(event) => { if (event.target.matches('[aria-invalid="true"]') && event.target.checkValidity()) event.target.removeAttribute("aria-invalid"); }}>
             <div className="field-row"><label className="field-box"><span className="sr-only">Your name</span><input type="text" name="name" autoComplete="name" placeholder="Your Name" required /></label><label className="field-box"><span className="sr-only">Organization</span><input type="text" name="organization" autoComplete="organization" placeholder="Organization" /></label></div>
             <div className="field-row"><label className="field-box"><span className="sr-only">Email address</span><input type="email" name="email" autoComplete="email" placeholder="Email Address" required /></label><label className="field-box"><span className="sr-only">Phone number</span><input type="tel" name="phone" autoComplete="tel" placeholder="Phone Number" /></label></div>
@@ -288,7 +263,7 @@ export default function HomePage() {
         <div className="footer-grid">
           <div className="footer-identity"><Brand /><p>Imagination, hybridized into reality.</p></div>
           <nav className="footer-group" aria-label="About links"><h3>About</h3><a href="#about">About Us</a><a href="#about">Our Team</a><a href="#contact">Careers</a></nav>
-          <nav className="footer-group" aria-label="Services links"><h3>What we do</h3><a href="#what-we-do">Events</a><a href="#what-we-do">Media</a><a href="#what-we-do">Talent</a><a href="#worlds">Image &amp; PR</a><a href="#worlds">Creative Industries</a></nav>
+          <nav className="footer-group" aria-label="Services links"><h3>What we do</h3><a href="#what-we-do">Events</a><a href="#what-we-do">Media</a><a href="#what-we-do">Talent</a><a href="#ecosystem">Image &amp; PR</a><a href="#ecosystem">Creative Industries</a></nav>
           <nav className="footer-group" aria-label="World links"><h3>Our worlds</h3><a href="#experience">The Experience</a><a href="#experience">Lab</a><a href="#projects">Projects</a><a href="#insights">Insights</a></nav>
           <nav className="footer-group" aria-label="Contact links"><h3>Connect</h3><a href="#contact">Contact Us</a><a href="#contact">Partner With Us</a><a href="#contact">Experience Lab</a></nav>
           <div className="footer-group"><h3>Follow us</h3><div className="social-row" aria-label="Social channels"><span aria-label="Instagram">◎</span><span aria-label="LinkedIn">in</span><span aria-label="YouTube">▶</span><span aria-label="Email">✉</span></div></div>
